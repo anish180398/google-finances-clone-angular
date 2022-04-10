@@ -1,0 +1,88 @@
+<header class="mb-3 mt-4">
+  <small class="text-light text-opacity-75">{{
+    "SEARCH.TITLE" | translate
+  }}</small>
+</header>
+<swiper
+  [slidesPerView]="1"
+  [spaceBetween]="10"
+  [navigation]="true"
+  [breakpoints]="{
+    '@0.00': {
+      slidesPerView: 2.1,
+      spaceBetween: 10
+    },
+    '@0.75': {
+      slidesPerView: 3.1,
+      spaceBetween: 10
+    },
+    '@1.00': {
+      slidesPerView: 4.1,
+      spaceBetween: 10
+    },
+    '@1.50': {
+      slidesPerView: 6.1,
+      spaceBetween: 10
+    }
+  }"
+  class="mySwiper"
+>
+  <ng-template swiperSlide *ngFor="let search of interestList">
+    <a
+      [routerLink]="['/']"
+      class="border border-dark bg-body rounded-3 p-2_5 d-flex flex-column justify-content-between text-decoration-none w-100 carrousel__card--height carrousel__card--hover cursor-move"
+    >
+      <div>
+        <small
+          class="fs-7 d-flex justify-content-center align-items-center rounded text-white text-uppercase carrousel__code--width mb-1 fw-medium"
+          [ngClass]="{
+            'bg-blue-3':
+              search.code === 'ITSA3' ||
+              search.code === 'ITSA4' ||
+              search.code === 'TOTS3' ||
+              search.code === 'MGLU3',
+            'bg-secondary': search.code === 'BRPR3',
+            'bg-indigo':
+              search.code === 'NUBR33' ||
+              search.code === 'OIBR3' ||
+              search.code === 'BBAS3',
+            'bg-blue-2': search.code === 'ABEV3',
+            'bg-green-1': search.code === 'HGLG11',
+            'bg-blue-1': search.code === 'BBAS3',
+            'bg-green-2': search.code === 'IRBR3',
+            'bg-red-1': search.code === 'BBDC3',
+            'bg-primary': search.code === 'ITUB3',
+            'bg-dark': search.code === 'ÍNDICE' || search.code === 'RAPT4',
+            'bg-danger': search.code === 'SANB11',
+            'bg-red-2': search.code === 'GOOGL'
+          }"
+          >{{ search.code }}</small
+        >
+        <small class="text-light text-opacity-75 fw-medium">{{
+          search.name
+        }}</small>
+      </div>
+      <div class="d-flex justify-content-between align-items-end">
+        <div>
+          <p class="mb-1 text-white">{{ search.value }}</p>
+          <small
+            class="d-flex justify-content-center align-items-center rounded carrousel__percentage--width background-green-opacity text-success"
+            >{{ search.percentage }}</small
+          >
+        </div>
+        <small class="p-1 carrousel__follow--hover position-relative">
+          <i
+            class="material-icons fs-4 d-flex"
+            title="{{ 'SEARCH.ALT_ICON_ADD' | translate }}"
+            >add_circle_outline</i
+          >
+          <div
+            class="rounded py-1 px-2 text-body text-center position-absolute bg-body border border-dark shadow"
+          >
+            <small class="fs-7">{{ "SEARCH.TXT_FOLLOWED" | translate }}</small>
+          </div>
+        </small>
+      </div>
+    </a>
+  </ng-template>
+</swiper>

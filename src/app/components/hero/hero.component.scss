@@ -1,0 +1,18 @@
+@import "../../../styles/variables";
+
+.hero__hero--background {
+  background: url("../../../assets/img/bg-google-dark.svg") no-repeat center
+    center;
+  background-size: cover;
+  padding-top: 5.375rem;
+}
+
+.nav a.active {
+  color: var(--color-blue-3) !important;
+  background-color: rgba($color: $dark, $alpha: 0.4);
+}
+
+.hero__tab--width {
+  width: 2.1875rem;
+  height: 2.1875rem;
+}

@@ -1,0 +1,98 @@
+<header class="mb-3">
+  <p class="mb-2 fs-5 text-light font-mosnospace">
+    {{ "INTEREST.TITLE" | translate }}
+  </p>
+  <div class="d-flex align-items-center gap-1 text-light text-opacity-75">
+    <small>{{ "INTEREST.SUBTITLE" | translate }}</small>
+    <i
+      class="material-icons-outlined fs-6"
+      title="{{ 'INTEREST.ALT_ICON_INFO' | translate }}"
+      >info</i
+    >
+  </div>
+</header>
+<swiper
+  [slidesPerView]="1"
+  [spaceBetween]="10"
+  [navigation]="true"
+  [breakpoints]="{
+    '@0.00': {
+      slidesPerView: 2.1,
+      spaceBetween: 10
+    },
+    '@0.75': {
+      slidesPerView: 3.1,
+      spaceBetween: 10
+    },
+    '@1.00': {
+      slidesPerView: 4.1,
+      spaceBetween: 10
+    },
+    '@1.50': {
+      slidesPerView: 6.1,
+      spaceBetween: 10
+    }
+  }"
+  class="mySwiper"
+>
+  <ng-template swiperSlide *ngFor="let interest of interestList">
+    <a
+      [routerLink]="['/']"
+      class="border border-dark bg-body rounded-3 p-2_5 d-flex flex-column justify-content-between text-decoration-none w-100 carrousel__card--height carrousel__card--hover cursor-move"
+    >
+      <div>
+        <small
+          class="fs-7 d-flex justify-content-center align-items-center rounded text-white text-uppercase carrousel__code--width mb-1 fw-medium"
+          [ngClass]="{
+            'bg-blue-1': interest.code === 'GRND3' || interest.code === 'UGPA3',
+            'bg-dark':
+              interest.code === 'USIM5' ||
+              interest.code === 'FLRY3' ||
+              interest.code === 'ODPV3' ||
+              interest.code === 'ÍNDICE',
+            'bg-green-3': interest.code === 'CMIG4',
+            'bg-yellow-2': interest.code === 'BRFS3',
+            'bg-green-1': interest.code === 'ELET3',
+            'bg-blue-2':
+              interest.code === 'GGBR4' ||
+              interest.code === 'GOAU4' ||
+              interest.code === 'ITUB4' ||
+              interest.code === 'WEGE3',
+            'bg-danger': interest.code === 'CCRO3',
+            'bg-green-2': interest.code === 'PETR4',
+            'bg-secondary': interest.code === 'EMBR3',
+            'bg-red-1': interest.code === 'BBDC4',
+            'bg-yellow-1': interest.code === 'VALE3'
+          }"
+          >{{ interest.code }}</small
+        >
+        <small class="text-light text-opacity-75 fw-medium">{{
+          interest.name
+        }}</small>
+      </div>
+      <div class="d-flex justify-content-between align-items-end">
+        <div>
+          <p class="mb-1 text-white">{{ interest.value }}</p>
+          <small
+            class="d-flex justify-content-center align-items-center rounded carrousel__percentage--width background-green-opacity text-success"
+            >{{ interest.percentage }}</small
+          >
+        </div>
+        <small class="p-1 carrousel__follow--hover position-relative">
+          <i
+            class="material-icons fs-4 d-flex"
+            title="{{ 'INTEREST.ALT_ICON_ADD' | translate }}"
+            >add_circle_outline</i
+          >
+          <div
+            class="rounded py-1 px-2 text-body text-center position-absolute bg-body border border-dark shadow"
+          >
+            <small class="fs-7">{{
+              "INTEREST.TXT_FOLLOWED" | translate
+            }}</small>
+          </div>
+        </small>
+      </div>
+    </a>
+  </ng-template>
+</swiper>

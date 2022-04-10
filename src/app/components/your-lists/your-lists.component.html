@@ -1,0 +1,99 @@
+<section class="mt-4 pt-3">
+  <small class="text-light mb-3 d-block fs-7">{{
+    "YOUR_LIST.TITLE" | translate
+  }}</small>
+  <ul
+    class="list-unstyled m-0 d-flex flex-wrap align-items-center gap-3 gap-md-4"
+  >
+    <li>
+      <a
+        class="btn border border-dark rounded hover-bg-dark d-flex align-items-end gap-3 fs-6"
+        [routerLink]="['/']"
+      >
+        <div class="d-flex align-items-center gap-2">
+          <i
+            class="material-icons-outlined fs-5 yourList__containerIcon--container rounded bg-opacity-50 bg-dark d-flex align-items-center justify-content-center"
+            title="{{ 'YOUR_LIST.ALT_ICON_LIST' | translate }}"
+            >format_list_bulleted</i
+          >
+          <span class="text-light text-opacity-50">{{
+            "YOUR_LIST.BTN_LIST1" | translate
+          }}</span>
+        </div>
+        <span class="yourList__number--margin">10</span>
+      </a>
+    </li>
+    <li>
+      <a
+        class="btn border border-dark rounded hover-bg-dark d-flex align-items-end gap-3 fs-6"
+        [routerLink]="['/']"
+      >
+        <div class="d-flex align-items-center gap-2">
+          <i
+            class="material-icons-outlined fs-5 yourList__containerIcon--container rounded bg-opacity-50 bg-dark d-flex align-items-center justify-content-center"
+            title="{{ 'YOUR_LIST.ALT_ICON_WALLET' | translate }}"
+            >insert_chart</i
+          >
+          <span class="text-light text-opacity-50">{{
+            "YOUR_LIST.BTN_LIST2" | translate
+          }}</span>
+        </div>
+        <span class="yourList__number--margin">7</span>
+      </a>
+    </li>
+    <li>
+      <button
+        class="btn rounded d-flex align-items-end gap-2 fs-6 text-primary yourList__newList--hover"
+        type="button"
+        (click)="open(content)"
+      >
+        <i
+          class="material-icons-outlined"
+          title="{{ 'YOUR_LIST.ALT_ICON_PLUS' | translate }}"
+          >add</i
+        >
+        <span class="fw-medium">{{ "YOUR_LIST.BTN_LIST3" | translate }}</span>
+      </button>
+    </li>
+  </ul>
+</section>
+<ng-template #content let-modal>
+  <div class="border-0 pb-0 px-4 modal-header">
+    <p class="m-0 fs-4 text-white font-monospace" id="modal">
+      {{ "YOUR_LIST.MODAL.TITLE" | translate }}
+    </p>
+  </div>
+  <div class="modal-body px-4">
+    <form [formGroup]="form">
+      <input
+        class="form-control rounded-3 border-dark p-2_5 shadow-none"
+        type="text"
+        placeholder="{{ 'YOUR_LIST.MODAL.PLACEHOLDER' | translate }}"
+        formControlName="name"
+        [ngClass]="{
+          'is-invalid': form.controls.name.invalid && form.controls.name.dirty,
+          'is-valid': form.controls.name.valid
+        }"
+      />
+      <div class="pt-4 d-flex gap-2 justify-content-end w-100">
+        <button
+          class="m-0 btn px-4 rounded-3 text-primary"
+          type="button"
+          aria-label="Close"
+          (click)="modal.dismiss('close')"
+        >
+          {{ "YOUR_LIST.MODAL.BTN_CANCEL" | translate }}
+        </button>
+        <button
+          class="m-0 btn px-4 rounded-3 bg-primary text-white"
+          type="button"
+          aria-label="Close"
+          (click)="modal.dismiss('close')"
+          [disabled]="form.invalid"
+        >
+          {{ "YOUR_LIST.MODAL.BTN_SAVE" | translate }}
+        </button>
+      </div>
+    </form>
+  </div>
+</ng-template>

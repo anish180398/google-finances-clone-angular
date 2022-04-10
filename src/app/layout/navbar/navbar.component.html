@@ -1,0 +1,188 @@
+<section
+  class="d-flex justify-content-between align-items-center p-2 position-fixed bg-body w-100"
+  #header
+>
+  <div class="d-flex align-items-center">
+    <button
+      class="btn d-flex p-2 mx-1 shadow-none rounded-circle hover-bg-gray"
+      (click)="openSidebar()"
+    >
+      <i
+        class="material-icons text-white"
+        title="{{ 'NAVBAR.ALT_ICON_MENU' | translate }}"
+        >menu</i
+      >
+    </button>
+    <a
+      class="d-flex align-items-center mt-1 text-decoration-none"
+      [routerLink]="['/']"
+    >
+      <img
+        class="d-block navbar__imageLogo--width"
+        src="./assets/img/google.svg"
+        alt="{{ 'NAVBAR.LOGO_GOOGLE' | translate }}"
+      />
+      <p
+        class="mb-0 ms-2 font-monospace fw-medium fs-5 text-light d-none d-sm-block"
+      >
+        {{ "NAVBAR.LOGO_GOOGLE_TXT" | translate }}
+      </p>
+    </a>
+  </div>
+  
+</section>
+<!-- SIDEBAR  -->
+<aside
+  class="navbar__sidebar--config position-fixed h-100 min-vh-100 start-0 d-flex flex-column pt-3 top-0"
+  [ngClass]="{
+    'navbar__sidebar--transform-out': sidebar === false,
+    'navbar__sidebar--transform-in': sidebar === true
+  }"
+>
+  <header class="d-flex align-items-center justify-content-between">
+    <a
+      class="d-flex align-items-center text-decoration-none ps-4"
+      [routerLink]="['/']"
+    >
+      <img
+        class="d-block navbar__imageLogo--width"
+        src="./assets/img/google.svg"
+        alt="{{ 'NAVBAR.LOGO_GOOGLE' | translate }}"
+      />
+      <p class="mb-0 ms-2 font-monospace fw-medium fs-5 text-light">
+        {{ "NAVBAR.LOGO_GOOGLE_TXT" | translate }}
+      </p>
+    </a>
+    <button
+      class="btn shadow-none d-flex mt-1 text-light text-opacity-50"
+      (click)="closeSidebar()"
+    >
+      <i
+        class="material-icons fs-4"
+        title="{{ 'NAVBAR.SIDEBAR.ALT_ICON_CLOSE' | translate }}"
+        >close</i
+      >
+    </button>
+  </header>
+  <section class="pt-4 pe-3 pb-5 pb-sm-0">
+    <div class="pb-2">
+      <a
+        class="d-flex gap-3 hover-bg-item-sidebar align-items-center text-decoration-none ps-4 py-2 rounded-start rounded-pill bg-body text-primary bg-opacity-75 active"
+        [routerLink]="['/']"
+      >
+        <i
+          class="material-icons-outlined fs-4 py-1"
+          title="{{ 'NAVBAR.SIDEBAR.ALT_ICON_SIGNAL' | translate }}"
+          >signal_cellular_alt</i
+        >
+        <small class="py-1 font-monospace fw-medium">{{
+          "NAVBAR.SIDEBAR.ITEM1" | translate
+        }}</small>
+      </a>
+      <a
+        class="d-flex gap-3 hover-bg-item-sidebar align-items-center text-decoration-none ps-4 py-2 rounded-start rounded-pill text-light text-opacity-75"
+        [routerLink]="['/']"
+      >
+        <i
+          class="material-icons-outlined fs-4 py-1"
+          title="{{ 'NAVBAR.SIDEBAR.ALT_ICON_SEARCH' | translate }}"
+          >manage_search</i
+        >
+        <small class="py-1 font-monospace">{{
+          "NAVBAR.SIDEBAR.ITEM2" | translate
+        }}</small>
+      </a>
+    </div>
+    <hr class="bg-dark m-0" />
+    <div class="py-1">
+      <div class="d-flex align-items-center justify-content-between ps-4 pt-2">
+        <small class="m-0 fs-7">{{ "NAVBAR.SIDEBAR.ITEM3" | translate }}</small>
+        <button class="d-flex btn p-2 hover-bg-item-sidebar rounded-pill">
+          <i
+            class="material-icons-outlined text-primary fs-4"
+            title="{{ 'NAVBAR.SIDEBAR.ALT_ICON_PLUS' | translate }}"
+            >add</i
+          >
+        </button>
+      </div>
+      <a
+        class="d-flex gap-3 hover-bg-item-sidebar align-items-center text-decoration-none ps-4 py-2 rounded-start rounded-pill text-light text-opacity-75"
+        [routerLink]="['/']"
+      >
+        <i
+          class="material-icons-outlined fs-4 py-1"
+          title="{{ 'NAVBAR.SIDEBAR.ALT_ICON_WALLET' | translate }}"
+          >insert_chart</i
+        >
+        <small class="py-1 font-monospace">{{
+          "NAVBAR.SIDEBAR.ITEM4" | translate
+        }}</small>
+      </a>
+    </div>
+    <div class="pb-2">
+      <div class="d-flex align-items-center justify-content-between ps-4 pt-2">
+        <small class="m-0 fs-7">{{ "NAVBAR.SIDEBAR.ITEM5" | translate }}</small>
+        <button class="d-flex btn p-2 hover-bg-item-sidebar rounded-pill">
+          <i
+            class="material-icons-outlined text-primary fs-4"
+            title="{{ 'NAVBAR.SIDEBAR.ALT_ICON_PLUS' | translate }}"
+            >add</i
+          >
+        </button>
+      </div>
+      <a
+        class="d-flex gap-3 hover-bg-item-sidebar align-items-center text-decoration-none ps-4 py-2 rounded-start rounded-pill text-light text-opacity-75"
+        [routerLink]="['/']"
+      >
+        <i
+          class="material-icons-outlined fs-4 py-1 transform-rotate"
+          title="{{ 'NAVBAR.SIDEBAR.ALT_ICON_LIST' | translate }}"
+          >toc</i
+        >
+        <small class="py-1 font-monospace">{{
+          "NAVBAR.SIDEBAR.ITEM6" | translate
+        }}</small>
+      </a>
+    </div>
+    <hr class="bg-dark m-0" />
+    <div class="pt-3">
+      <div class="ps-4 pt-1">
+        <small class="m-0 fs-7">{{ "NAVBAR.SIDEBAR.ITEM7" | translate }}</small>
+      </div>
+      <ul class="list-unstyled my-2">
+        <li *ngFor="let actives of listActives">
+          <a
+            class="d-flex justify-content-between gap-3 hover-bg-item-sidebar align-items-center text-decoration-none ps-4 py-2 rounded-start rounded-pill text-light text-opacity-75 pe-2"
+            [routerLink]="['/']"
+          >
+            <div class="d-flex align-items-center gap-2">
+              <i
+                class="material-icons-outlined fs-6 bg-body rounded-circle p-2 bg-opacity-50"
+                title="{{ 'NAVBAR.SIDEBAR.ALT_ICON_ARROW' | translate }}"
+                >trending_flat</i
+              >
+              <small class="py-1 font-monospace">{{ actives.name }}</small>
+            </div>
+            <small class="py-1 font-monospace">{{ actives.value }}</small>
+          </a>
+        </li>
+      </ul>
+      <hr class="bg-dark m-0 mt-1" />
+    </div>
+    <div class="py-2">
+      <a
+        class="d-flex gap-3 hover-bg-item-sidebar align-items-center text-decoration-none ps-4 py-2 rounded-start rounded-pill text-light text-opacity-75"
+        [routerLink]="['/']"
+      >
+        <i
+          class="material-icons-outlined fs-4 py-1 transform-rotate"
+          title="{{ 'NAVBAR.SIDEBAR.ALT_ICON_FEEDBACK' | translate }}"
+          >feedback</i
+        >
+        <small class="py-1 font-monospace">{{
+          "NAVBAR.SIDEBAR.TXT_FEEDBACK" | translate
+        }}</small>
+      </a>
+    </div>
+  </section>
+</aside>

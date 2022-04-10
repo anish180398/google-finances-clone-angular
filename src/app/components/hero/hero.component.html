@@ -1,0 +1,318 @@
+<article
+  class="d-flex justify-content-center align-items-center px-4 pb-4 hero__hero--background w-100"
+>
+  <section class="container-lg p-0">
+    <nav>
+      <div
+        class="nav nav-tabs border-0 justify-content-center gap-2 mb-2"
+        id="nav-tab"
+        role="tablist"
+      >
+        <a
+          class="font-monospace fs-6 fw-medium text-light text-opacity-50 py-1 px-3 text-decoration-none rounded-pill active"
+          id="nav-eua-tab"
+          data-bs-target="#nav-eua"
+          data-bs-toggle="tab"
+          type="button"
+          role="tab"
+          aria-controls="nav-eua"
+          aria-selected="true"
+        >
+          {{ "HERO.ITEM1" | translate }}
+        </a>
+        <a
+          class="font-monospace fs-6 fw-medium text-light text-opacity-50 py-1 px-3 text-decoration-none rounded-pill"
+          id="nav-europe-tab"
+          data-bs-target="#nav-europe"
+          data-bs-toggle="tab"
+          type="button"
+          role="tab"
+          aria-controls="nav-europe"
+          aria-selected="false"
+        >
+          {{ "HERO.ITEM2" | translate }}
+        </a>
+        <a
+          class="font-monospace fs-6 fw-medium text-light text-opacity-50 py-1 px-3 text-decoration-none rounded-pill"
+          id="nav-asia-tab"
+          data-bs-target="#nav-asia"
+          data-bs-toggle="tab"
+          type="button"
+          role="tab"
+          aria-controls="nav-asia"
+          aria-selected="false"
+        >
+          {{ "HERO.ITEM3" | translate }}
+        </a>
+        <a
+          class="font-monospace fs-6 fw-medium text-light text-opacity-50 py-1 px-3 text-decoration-none rounded-pill"
+          id="nav-coin-tab"
+          data-bs-target="#nav-coin"
+          data-bs-toggle="tab"
+          type="button"
+          role="tab"
+          aria-controls="nav-coin"
+          aria-selected="false"
+        >
+          {{ "HERO.ITEM4" | translate }}
+        </a>
+        <a
+          class="font-monospace fs-6 fw-medium text-light text-opacity-50 py-1 px-3 text-decoration-none rounded-pill"
+          id="nav-crypto-tab"
+          data-bs-target="#nav-crypto"
+          data-bs-toggle="tab"
+          type="button"
+          role="tab"
+          aria-controls="nav-crypto"
+          aria-selected="false"
+        >
+          {{ "HERO.ITEM5" | translate }}
+        </a>
+      </div>
+    </nav>
+    <div class="tab-content" id="nav-tabContent">
+      <div
+        class="tab-pane fade show active"
+        id="nav-eua"
+        role="tabpanel"
+        aria-labelledby="nav-eua-tab"
+      >
+        <ul
+          class="list-unstyled row row-cols-1 row-cols-sm-2 row-cols-lg-5 justify-content-center g-2"
+        >
+          <li *ngFor="let eua of listDataEUA">
+            <div
+              class="rounded-2 border border-dark p-1 d-flex justify-content-between gap-2 bg-body"
+            >
+              <div class="d-flex align-items-start gap-2">
+                <div
+                  class="hero__tab--width d-flex justify-content-center m-0 mt-1 align-items-center p-0 rounded-3"
+                  [ngClass]="{
+                    'text-success background-green-opacity':
+                      eua.icon === 'arrow_upward',
+                    'text-danger background-danger-opacity':
+                      eua.icon === 'arrow_downward'
+                  }"
+                >
+                  <i
+                    class="material-icons fs-5"
+                    title="{{ 'HERO.ALT_ICON_ARROW' | translate }}"
+                    >{{ eua.icon }}</i
+                  >
+                </div>
+                <div class="d-flex flex-column">
+                  <small class="text-light">{{ eua.name }}</small>
+                  <small class="fs-6">{{ eua.value }}</small>
+                </div>
+              </div>
+              <div
+                class="d-flex flex-column text-success text-end"
+                [ngClass]="{
+                  'text-success': eua.icon === 'arrow_upward',
+                  'text-danger': eua.icon === 'arrow_downward'
+                }"
+              >
+                <small class="fs-6">{{ eua.percentage }}</small>
+                <small class="fs-6">{{ eua.PercentagePoint }}</small>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div
+        class="tab-pane fade"
+        id="nav-europe"
+        role="tabpanel"
+        aria-labelledby="nav-europe-tab"
+      >
+        <ul
+          class="list-unstyled row row-cols-1 row-cols-sm-2 row-cols-lg-4 row-cols-xl-5 justify-content-center g-2"
+        >
+          <li *ngFor="let europe of listDataEurope">
+            <div
+              class="rounded-2 border border-dark p-1 d-flex justify-content-between gap-2 bg-body"
+            >
+              <div class="d-flex align-items-start gap-2">
+                <div
+                  class="hero__tab--width d-flex justify-content-center m-0 mt-1 align-items-center p-0 rounded-3"
+                  [ngClass]="{
+                    'text-success background-green-opacity':
+                      europe.icon === 'arrow_upward',
+                    'text-danger background-danger-opacity':
+                      europe.icon === 'arrow_downward'
+                  }"
+                >
+                  <i
+                    class="material-icons fs-5"
+                    title="{{ 'HERO.ALT_ICON_ARROW' | translate }}"
+                    >{{ europe.icon }}</i
+                  >
+                </div>
+                <div class="d-flex flex-column">
+                  <small class="text-light">{{ europe.name }}</small>
+                  <small class="fs-6">{{ europe.value }}</small>
+                </div>
+              </div>
+              <div
+                class="d-flex flex-column text-success text-end"
+                [ngClass]="{
+                  'text-success': europe.icon === 'arrow_upward',
+                  'text-danger': europe.icon === 'arrow_downward'
+                }"
+              >
+                <small class="fs-6">{{ europe.percentage }}</small>
+                <small class="fs-6">{{ europe.PercentagePoint }}</small>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div
+        class="tab-pane fade"
+        id="nav-asia"
+        role="tabpanel"
+        aria-labelledby="nav-asia-tab"
+      >
+        <ul
+          class="list-unstyled row row-cols-1 row-cols-sm-2 row-cols-lg-4 row-cols-xl-5 justify-content-center g-2"
+        >
+          <li *ngFor="let asia of listDataAsia">
+            <div
+              class="rounded-2 border border-dark p-1 d-flex justify-content-between gap-2 bg-body"
+            >
+              <div class="d-flex align-items-start gap-2">
+                <div
+                  class="hero__tab--width d-flex justify-content-center m-0 mt-1 align-items-center p-0 rounded-3"
+                  [ngClass]="{
+                    'text-success background-green-opacity':
+                      asia.icon === 'arrow_upward',
+                    'text-danger background-danger-opacity':
+                      asia.icon === 'arrow_downward'
+                  }"
+                >
+                  <i
+                    class="material-icons fs-5"
+                    title="{{ 'HERO.ALT_ICON_ARROW' | translate }}"
+                    >{{ asia.icon }}</i
+                  >
+                </div>
+                <div class="d-flex flex-column">
+                  <small class="text-light">{{ asia.name }}</small>
+                  <small class="fs-6">{{ asia.value }}</small>
+                </div>
+              </div>
+              <div
+                class="d-flex flex-column text-success text-end"
+                [ngClass]="{
+                  'text-success': asia.icon === 'arrow_upward',
+                  'text-danger': asia.icon === 'arrow_downward'
+                }"
+              >
+                <small class="fs-6">{{ asia.percentage }}</small>
+                <small class="fs-6">{{ asia.PercentagePoint }}</small>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div
+        class="tab-pane fade"
+        id="nav-coin"
+        role="tabpanel"
+        aria-labelledby="nav-coin-tab"
+      >
+        <ul
+          class="list-unstyled row row-cols-1 row-cols-sm-2 row-cols-lg-4 row-cols-xl-5 justify-content-center g-2"
+        >
+          <li *ngFor="let coin of listDataCoin">
+            <div
+              class="rounded-2 border border-dark p-1 d-flex justify-content-between gap-2 bg-body"
+            >
+              <div class="d-flex align-items-start gap-2">
+                <div
+                  class="hero__tab--width d-flex justify-content-center m-0 mt-1 align-items-center p-0 rounded-3 bg-white bg-opacity-10 text-light text-opacity-50"
+                >
+                  <i
+                    class="material-icons fs-5"
+                    title="{{ 'HERO.ALT_ICON_ARROW' | translate }}"
+                    >{{ coin.icon }}</i
+                  >
+                </div>
+                <div class="d-flex flex-column">
+                  <small class="text-light">{{ coin.name }}</small>
+                  <small class="fs-6">{{ coin.value }}</small>
+                </div>
+              </div>
+              <div class="d-flex flex-column text-end">
+                <small class="fs-6">{{ coin.percentage }}</small>
+                <small class="fs-6">{{ coin.PercentagePoint }}</small>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div
+        class="tab-pane fade"
+        id="nav-crypto"
+        role="tabpanel"
+        aria-labelledby="nav-crypto-tab"
+      >
+        <ul
+          class="list-unstyled row row-cols-1 row-cols-sm-2 row-cols-lg-4 row-cols-xl-5 justify-content-center g-2"
+        >
+          <li *ngFor="let crypto of listDataCrypto">
+            <div
+              class="rounded-2 border border-dark p-1 d-flex justify-content-between gap-2 bg-body"
+            >
+              <div class="d-flex align-items-start gap-2">
+                <div
+                  class="hero__tab--width d-flex justify-content-center m-0 mt-1 align-items-center p-0 rounded-3"
+                  [ngClass]="{
+                    'text-success background-green-opacity':
+                      crypto.icon === 'arrow_upward',
+                    'text-danger background-danger-opacity':
+                      crypto.icon === 'arrow_downward'
+                  }"
+                >
+                  <i
+                    class="material-icons fs-5"
+                    title="{{ 'HERO.ALT_ICON_ARROW' | translate }}"
+                    >{{ crypto.icon }}</i
+                  >
+                </div>
+                <div class="d-flex flex-column">
+                  <small class="text-light">{{ crypto.name }}</small>
+                  <small class="fs-6">{{ crypto.value }}</small>
+                </div>
+              </div>
+              <div
+                class="d-flex flex-column text-success text-end"
+                [ngClass]="{
+                  'text-success': crypto.icon === 'arrow_upward',
+                  'text-danger': crypto.icon === 'arrow_downward'
+                }"
+              >
+                <small class="fs-6">{{ crypto.percentage }}</small>
+                <small class="fs-6">{{ crypto.PercentagePoint }}</small>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div
+      class="mx-auto col-12 col-sm-8 col-lg-6 col-xxl-5 position-relative mt-4"
+    >
+      <input
+        class="form-control rounded-pill py-3 px-5 border-dark"
+        type="text"
+        placeholder="{{ 'HERO.PLACEHOLDER_SEARCH' | translate }}"
+      />
+      <i
+        class="material-icons m-3 position-absolute start-0 top-0"
+        title="{{ 'HERO.ALT_ICON_SEARCH' | translate }}"
+        >search</i
+      >
+    </div>
+  </section>
+</article>

@@ -1,0 +1,31 @@
+<app-navbar></app-navbar>
+<app-hero></app-hero>
+<main class="p-4">
+  <section class="app__section--grid container-lg p-0">
+    <div>
+      <app-on-high></app-on-high>
+      <app-your-lists></app-your-lists>
+      <app-news></app-news>
+    </div>
+    <div class="d-flex flex-column gap-3">
+      <app-your-wallets></app-your-wallets>
+      <app-trend></app-trend>
+      <app-schedule></app-schedule>
+      <app-followed></app-followed>
+    </div>
+  </section>
+</main>
+<app-trend-market></app-trend-market>
+<section class="w-100 px-4 pt-5 pb-4 mt-4 bg-dark-2">
+  <div class="container-lg p-0">
+    <app-interest></app-interest>
+    <app-search></app-search>
+    <app-footer></app-footer>
+  </div>
+</section>
+<ngx-spinner
+  type="ball-scale-multiple"
+  bdColor="rgba(0, 0, 0, .8)"
+  template="<img src='./assets/img/giphy.gif' style='width: 8.75rem' />"
+>
+</ngx-spinner>
