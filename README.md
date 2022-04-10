@@ -1,6 +1,6 @@
 # Clone Google Finances
 
-https://clone-google-finances.vercel.app/
+
 
 Use yarn install
 
